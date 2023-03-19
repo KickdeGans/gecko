@@ -117,7 +117,7 @@ proc parse_command()
 
     parsed_command = write(write("cd ", current_directory), "\n");
     parsed_command = write(write(parsed_command, command), "\n");
-    parsed_command = write(parsed_command, "pwd > ~/.flex_dir");
+    parsed_command = write(parsed_command, "pwd > ~/.gecko_dir");
 
     command_executable = pcom(command);
 end

@@ -1,6 +1,6 @@
 # Gecko
 
-## A command shell written in Fusion
+## A highly extensible command shell written in Fusion
 
 ## Installation:
 
