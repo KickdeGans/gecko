@@ -1,0 +1,29 @@
+#!/bin/sh
+
+echo "Installing Gecko..."
+
+fusion --version
+
+fusion --bundle src
+sed '2d' out > gecko
+sudo cp gecko /bin/gecko
+sudo cp "src/gecko --version" "/bin/gecko --version"
+
+echo "Installing config file..."
+
+touch $HOME/.gecko.fn
+echo "proc pcom(cmd)" > $HOME/.gecko.fn
+echo "    # Add your code here" >> $HOME/.gecko.fn
+echo "    " >> $HOME/.gecko.fn
+echo "    # Return 0 if command was used" >> $HOME/.gecko.fn
+echo "    # Don't touch this return statement" >> $HOME/.gecko.fn
+echo "    return 1;" >> $HOME/.gecko.fn
+echo "end" >> $HOME/.gecko.fn
+
+echo "Changing default shell"
+
+echo "/bin/gecko" >> /etc/shells
+
+sudo chsh -s /bin/gecko
+
+echo "Done"
